@@ -39,15 +39,14 @@ class CommentsController extends Controller
             'name' =>'required|max:50',
             'comment' =>'required|max:350|min:5'
         ]);
-        $postoId=request('post_id');
+       // $postoId=request('post_id');
         Comment::create([
             'name'=>request('name'),
             'comment'=>request('comment'),
             'post_id' =>request('post_id')
         ]);
 
-        return redirect('/post/'.$postoId)
-            ->with('success', 'Comment created!');
+
 
     }
 

@@ -12,6 +12,7 @@ use App\Post;
 use App\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class PostController extends BaseController
 {
@@ -88,6 +89,14 @@ class PostController extends BaseController
             ->with("categories",$categories);
     }
 
+    public function like($id){
+        $postas = Post::find($id);
+        $laikai =  $postas ->likes;
+
+        Post::where('id',$id)->update([
+            'likes' => $laikai+1
+        ]);
+    }
 
 
     public function edit($id)

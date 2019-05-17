@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->string('img')->nullable();
             $table->integer('cat_id');
             $table->integer('user_id');
-            $table->integer('likes');
+            $table->integer('likes')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

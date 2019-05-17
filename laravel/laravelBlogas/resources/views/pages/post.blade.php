@@ -12,6 +12,14 @@
                             <button type="submit" name="submit" class="btn  btn-dark">Delete</button>
                         </div>
                     </form>
+                    <form id="delete-form" method="POST" action="{!!$post->id!!}/destroy">
+                        @method('DELETE')
+                        @csrf
+                        <div class="form-group">
+                            <a href="/post/{{$post->id}}/like" class="btn pull-right btn-danger">Like</a>
+                            <button type="submit" name="submit" class="btn btn-danger">Like</button>
+                        </div>
+                    </form>
                 </div>
                 <h1 class="display-4">{{$post->title}}</h1>
                 @foreach($categories as $category)

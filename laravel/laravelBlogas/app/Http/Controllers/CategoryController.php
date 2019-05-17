@@ -19,16 +19,13 @@ class CategoryController extends BaseController
 //    }
 
     public function storeCategory(Request $request){
-
        $request->validate([
             'name'=>'required',
         ]);
 
-
        Category::create([
             'name'=>request('name'),
         ]);
-
         return redirect('/add-category')
             ->with('success', 'Category created!');
     }

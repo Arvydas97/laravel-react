@@ -4,6 +4,9 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Comment;
 use App\Category;
+use \App\Http\Controllers\ApiController;
+use \App\Http\Controllers\CommentsController;
+
 use App\User;
 
 /*
@@ -20,44 +23,23 @@ use App\User;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/post', function () {
-    return Post::all();
-});
-Route::get('/post/{id}', function ($id) {
-    return Post::find($id);
-});
-//Route::get('/postByCategory', function () {
-//    $users = DB::table('posts')
-//        ->join('posts', 'id', '=', posts.user_id)
-//        ->get();
-//});
-Route::get('/category', function () {
-    return Category::all();
-});
-Route::get('/category/{id}', function ($id) {
-    return Category::find($id);
-});
+Route::get('/posts', 'ApiController@allPosts');
+Route::get('/post/{id}','ApiController@postById');
+Route::delete('/post/{id}/delete','ApiController@deletePost');
+Route::get('/post/{id}/like','PostController@like');
+Route::get('/post/{id}/update','PostController@update');
 
-Route::get('/user', function () {
-    return User::all();
-});
+Route::get('/category/{id}', 'ApiController@categoryById');
+Route::get('/categories','ApiController@allCategories');
 
-Route::get('/comment/{post_id}', function ($post_id) {
-    return Comment::where("post_id",$post_id)->get();
-});
-Route::get('/commentByPost', function ($id) {
-    return $users = DB::table('posts')
-        ->join('comments', 'posts.id', '=', 'comments.post_id')->select()
-        ->get();
-});
+Route::get('/comment/{post_id}', 'ApiController@commentsById');
+
 
 ///////Post uzklausos
-Route::post('/storeCategory', function (Request $request) {
-    return Category::storeCategory($request->all());
-});
-Route::post('/storePost', function (Request $request) {
-    return Post::store($request->all());
-});
-Route::post('/storeComment', function (Request $request) {
-    return Comment::store($request->all());
-});
+Route::post('/storeComment','CommentsController@store');
+Route::post('/storePost','PostController@store');
+Route::post('/storeCategory','CategoryController@storeCategory');
+
+
+
+

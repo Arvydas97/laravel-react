@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Post extends Model
 {
-    protected $fillable = ['title', 'description', 'img','cat_id','user_id'];
+    protected $fillable = ['title', 'description', 'img','cat_id','user_id','likes'];
 
     public function category()
     {
