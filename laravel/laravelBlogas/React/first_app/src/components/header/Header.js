@@ -16,31 +16,16 @@ class Header extends Component{
                             <div className="collapse navbar-collapse" id="navbarCollapse">
                                 <ul className="navbar-nav mr-auto w-100 justify-content-end">
                                     <li className="nav-item">
-                                        <a className="nav-link page-scroll" href="#slider-area">Home</a>
+                                        <a className="nav-link page-scroll" href="/">Home</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link page-scroll" href="#services">Services</a>
+                                        <a className="nav-link page-scroll" href="/post">All posts</a>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a className="nav-link page-scroll" href="/categories">Categories</a>
                                     </li>
                                     <li className="nav-item">
                                         <a className="nav-link page-scroll" href="#features">Features</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link page-scroll" href="#portfolios">Works</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link page-scroll" href="#pricing">Pricing</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link page-scroll" href="#team">Team</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link page-scroll" href="#subscribe">Subscribe</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link page-scroll" href="#blog">Blog</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link page-scroll" href="#contact">Contact</a>
                                     </li>
                                 </ul>
                             </div>
