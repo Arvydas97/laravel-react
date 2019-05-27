@@ -27,11 +27,11 @@ class Post extends Component{
                     <div className="blog-item-text">
                         <div className="date"><i className="lni-calendar"></i>{this.props.created_at }</div>
                         <div className="date"><i className="lni-calendar"></i>{this.props.cat_id }</div>
-                        <h3><a href="single-post.html">{this.props.title}</a></h3>
+                        <h3><Link to ={`/post/${this.props.id}`} >{this.props.title}</Link></h3>
                         <div className="meta-tags">
-                            <span><a href="#"><i className="lni-bubble"></i>{this.props.user_id}</a></span>
-                            <span><a href="#"><i className="lni-reply"></i> {this.props.description}</a></span>
-                            <button className={"btn-dark"} onClick={this.handleClick} >Likes: <span className="lni-reply">{this.props.likes}</span> </button>
+                            <span><i className="lni-bubble"></i>{this.props.user_id}</span>
+                            <span><i className="lni-reply"></i> {this.props.description}</span>
+                            <button className={"btn-dark"} onClick={this.handleClick} >Patinka: <span className="lni-reply">{this.props.likes}</span> </button>
                         </div>
                     </div>
                 </div>

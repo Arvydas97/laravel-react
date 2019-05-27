@@ -34,11 +34,14 @@ Route::get('/categories','ApiController@allCategories');
 
 Route::get('/comment/{post_id}', 'ApiController@commentsById');
 
+Route::get('/user/{id}', 'ApiController@userById');
+
 
 ///////Post uzklausos
 Route::post('/storeComment','CommentsController@store');
 Route::post('/storePost','PostController@store');
 Route::post('/storeCategory','CategoryController@storeCategory');
+
 
 
 

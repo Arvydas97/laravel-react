@@ -7,7 +7,7 @@ class Header extends Component{
                 <header id="slider-area">
                     <nav className="navbar navbar-expand-md fixed-top scrolling-navbar bg-white">
                         <div className="container">
-                            <a className="navbar-brand" href="index.html"><span className="lni-bulb"></span>ESSENCE</a>
+                            <a className="navbar-brand" href="/"><span className="lni-bulb"></span>!Blogas blogas</a>
                             <button className="navbar-toggler" type="button" data-toggle="collapse"
                                     data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
                                     aria-label="Toggle navigation">
@@ -16,16 +16,13 @@ class Header extends Component{
                             <div className="collapse navbar-collapse" id="navbarCollapse">
                                 <ul className="navbar-nav mr-auto w-100 justify-content-end">
                                     <li className="nav-item">
-                                        <a className="nav-link page-scroll" href="/">Home</a>
+                                        <a className="nav-link page-scroll" href="/">Pagrindinis</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link page-scroll" href="/post">All posts</a>
+                                        <a className="nav-link page-scroll" href="/categories">Kategorijos</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link page-scroll" href="/categories">Categories</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link page-scroll" href="#features">Features</a>
+                                        <a className="nav-link page-scroll" href="#features">Jau greitai!</a>
                                     </li>
                                 </ul>
                             </div>

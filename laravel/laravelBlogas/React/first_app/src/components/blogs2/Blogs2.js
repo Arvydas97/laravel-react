@@ -7,11 +7,11 @@ class Blogs2 extends Component{
     constructor(){
         super()
         this.state ={
-            posts:[]
+            posts:[],
             }
     }
     componentDidMount() {
-        fetch("http://blogas.test/api/posts")
+        fetch("http://laravel-react.test/api/posts")
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -28,10 +28,9 @@ class Blogs2 extends Component{
             <section id="blog" className="section">
                 <div className="container">
                     <div className="section-header">
-                        <h2 className="section-title">Blogs</h2>
+                        <h2 className="section-title">Naujienos</h2>
                         <span>Blogs</span>
-                        <p className="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Dignissimos debitis.</p>
+                        <p className="section-subtitle">Rinkis ką šiandien skaitysi!</p>
                     </div>
                     <div className="row">
                         {postComponents}

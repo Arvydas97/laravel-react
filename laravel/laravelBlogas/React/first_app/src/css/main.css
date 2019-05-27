@@ -18,6 +18,11 @@ html {
   overflow-x: hidden;
 }
 
+.carousel-img{
+  height: 100%;
+  width: 100%;
+}
+
 p {
   font-size: 14px;
   color: #546E7A;

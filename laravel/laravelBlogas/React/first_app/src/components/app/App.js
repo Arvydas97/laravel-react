@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Header, {}from '../header/Header';
 import Main, {}from '../main/Main';
 import Footer, {}from '../footer/Footer';
+import Categories, {}from '../categories/Categories';
 import styles from './app.scss';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Post from "../ipi_post/Post";
@@ -18,10 +19,10 @@ class App extends Component{
                      <Switch>
                          <Route exact path="/" component={Main} />
                          <Route exact path="/post/:post_id" component={PostWithComments}/>
+                         <Route exact path="/categories" component={Categories}/>
 
                      </Switch>
                 </Router>
-
                 <Footer/>
             </div>
             )

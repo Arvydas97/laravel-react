@@ -5,69 +5,6 @@ class Footer extends Component{
     render(){
         return(
             <footer>
-                <section class="footer-Content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
-                                <h3>Essence</h3>
-                                <div class="textwidget">
-                                    <p>If you think you have the passion,
-                                        attitude and capability to join us
-                                        the next big software company
-                                        s so that we can get the convers.</p>
-                                </div>
-                                <ul class="footer-social">
-                                    <li><a class="facebook" href="#"><i class="lni-facebook-filled"></i></a></li>
-                                    <li><a class="twitter" href="#"><i class="lni-twitter-filled"></i></a></li>
-                                    <li><a class="linkedin" href="#"><i class="lni-linkedin-fill"></i></a></li>
-                                    <li><a class="google-plus" href="#"><i class="lni-google-plus"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
-                                <div class="widget">
-                                    <h3 class="block-title">Short Link</h3>
-                                    <ul class="menu">
-                                        <li><a href="#">Service</a></li>
-                                        <li><a href="#">Wishlist</a></li>
-                                        <li><a href="#">FAQ</a></li>
-                                        <li><a href="#">Advance Sarch</a></li>
-                                        <li><a href="#">Site Map</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
-                                <div class="widget">
-                                    <h3 class="block-title">Contact Us</h3>
-                                    <ul class="contact-footer">
-                                        <li>
-                                            <strong>Address :</strong> <span>1900 Pico Blvd, New York br Centernial, colorado</span>
-                                        </li>
-                                        <li>
-                                            <strong>Phone :</strong> <span>+48 123 456 789</span>
-                                        </li>
-                                        <li>
-                                            <strong>E-mail :</strong> <span><a href="#">info@example.com</a></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 col-mb-12">
-                                <div class="widget">
-                                    <h3 class="block-title">Instagram</h3>
-                                    <ul class="instagram-footer">
-                                        <li><a href="#"><img src="img/instagram/insta1.jpg" alt=""></img></a></li>
-                                        <li><a href="#"><img src="img/instagram/insta2.jpg" alt=""></img></a></li>
-                                        <li><a href="#"><img src="img/instagram/insta3.jpg" alt=""></img></a></li>
-                                        <li><a href="#"><img src="img/instagram/insta4.jpg" alt=""></img></a></li>
-                                        <li><a href="#"><img src="img/instagram/insta5.jpg" alt=""></img></a></li>
-                                        <li><a href="#"><img src="img/instagram/insta6.jpg" alt=""></img></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
 
                 <div id="copyright">
                     <div class="container">

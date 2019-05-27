@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Comment;
 use App\Post;
+use App\User;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -13,6 +14,7 @@ class ApiController extends Controller
         return Post::all();
     }
     public function postById($id){
+       // return Comment::where("id",$id)->get();
         return Post::find($id);
     }
     public function deletePost($id){
@@ -26,6 +28,10 @@ class ApiController extends Controller
     }
     public function commentsById($post_id){
         return Comment::where("post_id",$post_id)->get();
+    }
+    public function userById($id){
+        // return Comment::where("id",$id)->get();
+        return User::find($id);
     }
 
 }

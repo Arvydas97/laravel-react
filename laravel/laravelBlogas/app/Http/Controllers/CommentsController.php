@@ -45,6 +45,8 @@ class CommentsController extends Controller
             'comment'=>request('comment'),
             'post_id' =>request('post_id')
         ]);
+        $re = $request->post_id;
+        return redirect('post/'.$re);
 
 
 

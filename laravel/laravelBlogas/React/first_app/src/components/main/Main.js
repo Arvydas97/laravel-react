@@ -11,11 +11,7 @@ class Main extends Component{
         return(
             <div>
                 <Carousel/>
-
                 <Blogs2/>
-                <Categories/>
-                <Comments/>
-
             </div>
         )
     }
