@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Comments from "../comments/Comments";
 import Post from "../ipi_post/Post";
 import Ipi_Comments from "../ipi_comments/Ipi_Comments";
+import SubscribeFrom from "../subscribe-form/Subscribe-from";
 
 
 
@@ -28,7 +29,7 @@ class PostWithComments extends Component{
     componentDidMount() {
         const { post_id } = this.props.match.params;
 
-        fetch('http://laravel-react.test/api/post/'+post_id)
+        fetch('http://blogas.test/api/post/'+post_id)
             .then(response => response.json())
             .then(data => {
 
@@ -36,14 +37,14 @@ class PostWithComments extends Component{
                     posts: data
                 })
             });
-        fetch('http://laravel-react.test/api/comment/'+post_id)
+        fetch('http://blogas.test/api/comment/'+post_id)
             .then(response => response.json())
             .then(data => {
                 this.setState({
                     comments: data
                 })
             })
-        fetch('http://laravel-react.test/api/category/'+post_id)
+        fetch('http://blogas.test/api/category/'+post_id)
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -83,6 +84,7 @@ class PostWithComments extends Component{
                         </div>
                     </div>
                 </div>
+                <SubscribeFrom/>
                 <div className="testimonial section">
                     <div className="container">
                         <div className="row">

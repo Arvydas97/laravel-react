@@ -11,7 +11,7 @@ class Blogs2 extends Component{
             }
     }
     componentDidMount() {
-        fetch("http://laravel-react.test/api/posts")
+        fetch("http://blogas.test/api/posts")
             .then(response => response.json())
             .then(data => {
                 this.setState({
