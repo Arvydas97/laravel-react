@@ -9,52 +9,52 @@ import SubscribeFrom from "../subscribe-form/Subscribe-from";
 
 
 class PostWithComments extends Component{
-    constructor(props){
-        super()
-        this.handleClick = this.handleClick.bind(this)
+    constructor(){
+        super();
+        this.handleClick = this.handleClick.bind(this);
         this.state ={
             posts:[],
             comments:[],
             category:[],
-            user:[]
+            user:[],
+            likes: 0
         }
-    }
-    handleClick(){
-        this.setState(prevState => {
-            return {
-                likes: prevState.likes + 1
-            }
-        })
     }
     componentDidMount() {
         const { post_id } = this.props.match.params;
 
-        fetch('http://blogas.test/api/post/'+post_id)
+        fetch('http://laravel-react.test/api/post/'+post_id)
             .then(response => response.json())
             .then(data => {
-
                 this.setState({
-                    posts: data
+                    posts: data,
+                    likes: data['likes']
                 })
             });
-        fetch('http://blogas.test/api/comment/'+post_id)
+        fetch('http://laravel-react.test/api/comment/'+post_id)
             .then(response => response.json())
             .then(data => {
                 this.setState({
                     comments: data
                 })
-            })
-        fetch('http://blogas.test/api/category/'+post_id)
+            });
+        fetch('http://laravel-react.test/api/category/'+post_id)
             .then(response => response.json())
             .then(data => {
                 this.setState({
                     category: data
                 })
-            })
-
+            });
     }
+    handleClick (pospost_id) {
+        this.setState((prevState, { likes }) => ({
+            likes: this.state.likes + 1
+        }));
+        fetch('http://laravel-react.test/api/post/'+pospost_id+'/like', {
+            method: 'POST',
+        })
+    };
     render(){
-        console.log(this.state.comments);
         const postCommments = this.state.comments.map( comment =>{
             return (
                 <Ipi_Comments id = {comment.id} name = {comment.name} comment = {comment.comment} post_id={comment.post_id} created_at ={comment.created_at} likes ={comment.likes} />
@@ -71,20 +71,20 @@ class PostWithComments extends Component{
                         <div className="blog-item-text">
                             <div className="row">
                                 <h3><a href="">{this.state.posts.title}</a></h3>
-                                <button className={"btn-dark"} onClick={this.handleClick} >Patinka: <span className="lni-reply">{this.state.posts.likes}</span> </button>
+                                <button className={"btn btn-common btn-effect"} onClick={() => this.handleClick(this.state.posts.id)} >Patinka:{this.state.likes} </button>
                             </div>
-                            <div className='row'>
-                                <div className="author"><i className="lni-calendar"></i>{this.state.category.name }</div>
-                                <div className="date"><i className="lni-calendar"></i>{this.state.posts.created_at }</div>
-                            </div>
+
+                                <div className="author lni-calendar row">{this.state.category.name }</div>
+                                <div className="date lni-calendar row">{this.state.posts.created_at }</div>
+
                             <div className="meta-tags">
-                                <span><a href="#"><i className="lni-bubble"></i>{this.state.user.name}</a></span>
-                                <span><i className="lni-reply"></i> {this.state.posts.description}</span>
+                                <span><a href="#">{this.state.user.name}</a></span>
+                                <span className="lni-reply">{this.state.posts.description}</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <SubscribeFrom/>
+                <SubscribeFrom post_id ={this.state.posts.id} />
                 <div className="testimonial section">
                     <div className="container">
                         <div className="row">

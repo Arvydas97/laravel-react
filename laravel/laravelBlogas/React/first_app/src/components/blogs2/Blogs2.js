@@ -11,7 +11,7 @@ class Blogs2 extends Component{
             }
     }
     componentDidMount() {
-        fetch("http://blogas.test/api/posts")
+        fetch("http://laravel-react.test/api/posts")
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -23,7 +23,7 @@ class Blogs2 extends Component{
         const postComponents = this.state.posts.map( post =>{
             return (
                 <Post id = {post.id} title = {post.title} description = {post.description} cat_id={post.cat_id} created_at ={post.created_at} likes = {post.likes}/>
-            )})
+            )});
         return(
             <section id="blog" className="section">
                 <div className="container">

@@ -5,9 +5,21 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 class Post extends Component{
     constructor(){
-        super()
-        this.handleClick = this.handleClick.bind(this)
+        super();
+        this.handleClick = this.handleClick.bind(this);
+        this.state ={
+            category:""
+        }
 }
+    componentDidMount() {
+        fetch('http://laravel-react.test/api/category/'+this.props.id)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    category: data["name"]
+                })
+            });
+    }
     handleClick(){
         this.setState(prevState => {
             return {
@@ -26,12 +38,11 @@ class Post extends Component{
                     </div>
                     <div className="blog-item-text">
                         <div className="date"><i className="lni-calendar"></i>{this.props.created_at }</div>
-                        <div className="date"><i className="lni-calendar"></i>{this.props.cat_id }</div>
+                        <div className="date"><i className="lni-calendar"></i>{this.state.category }</div>
                         <h3><Link to ={`/post/${this.props.id}`} >{this.props.title}</Link></h3>
                         <div className="meta-tags">
                             <span><i className="lni-bubble"></i>{this.props.user_id}</span>
                             <span><i className="lni-reply"></i> {this.props.description}</span>
-                            <button className={"btn-dark"} onClick={this.handleClick} >Patinka: <span className="lni-reply">{this.props.likes}</span> </button>
                         </div>
                     </div>
                 </div>
