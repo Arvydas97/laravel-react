@@ -33,5 +33,8 @@ class ApiController extends Controller
         // return Comment::where("id",$id)->get();
         return User::find($id);
     }
+//    public function sss(){
+//        return
+//    }
 
 }

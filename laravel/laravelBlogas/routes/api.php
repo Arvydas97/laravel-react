@@ -32,7 +32,7 @@ Route::get('/post/{id}','ApiController@postById');
 Route::delete('/post/{id}/delete','ApiController@deletePost');
 Route::post('/post/{id}/like','PostController@like');
 Route::post('/post/{id}/update','PostController@update');
-
+Route::get('/post/category/{id}','PostController@showByCategory');
 Route::get('/category/{id}', 'ApiController@categoryById');
 Route::get('/categories','ApiController@allCategories');
 

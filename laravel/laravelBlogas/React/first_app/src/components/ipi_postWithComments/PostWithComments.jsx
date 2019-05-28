@@ -12,18 +12,26 @@ class PostWithComments extends Component{
     constructor(){
         super();
         this.handleClick = this.handleClick.bind(this);
+        this.addComment = this.addComment.bind(this);
         this.state ={
             posts:[],
-            comments:[],
+            comm:[],
             category:[],
             user:[],
-            likes: 0
+            likes: 0,
+            loading: false
         }
+    }
+    addComment(comment) {
+        this.setState({
+            loading: false,
+            comm: [comment, ...this.state.comm]
+        });
     }
     componentDidMount() {
         const { post_id } = this.props.match.params;
 
-        fetch('http://laravel-react.test/api/post/'+post_id)
+        fetch('http://blogas.test/api/post/'+post_id)
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -31,14 +39,14 @@ class PostWithComments extends Component{
                     likes: data['likes']
                 })
             });
-        fetch('http://laravel-react.test/api/comment/'+post_id)
+        fetch('http://blogas.test/api/comment/'+post_id)
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    comments: data
+                    comm: data
                 })
             });
-        fetch('http://laravel-react.test/api/category/'+post_id)
+        fetch('http://blogas.test/api/category/'+post_id)
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -50,14 +58,14 @@ class PostWithComments extends Component{
         this.setState((prevState, { likes }) => ({
             likes: this.state.likes + 1
         }));
-        fetch('http://laravel-react.test/api/post/'+pospost_id+'/like', {
+        fetch('http://blogas.test/api/post/'+pospost_id+'/like', {
             method: 'POST',
         })
     };
     render(){
-        const postCommments = this.state.comments.map( comment =>{
+        const postCommments = this.state.comm.map( cm =>{
             return (
-                <Ipi_Comments id = {comment.id} name = {comment.name} comment = {comment.comment} post_id={comment.post_id} created_at ={comment.created_at} likes ={comment.likes} />
+                <Ipi_Comments name = {cm.name} comment = {cm.comment} created_at ={cm.created_at}  />
             )});
         return(
             <div>
@@ -84,7 +92,7 @@ class PostWithComments extends Component{
                         </div>
                     </div>
                 </div>
-                <SubscribeFrom post_id ={this.state.posts.id} />
+                <SubscribeFrom post_id ={this.state.posts.id} addComment={this.addComment} />
                 <div className="testimonial section">
                     <div className="container">
                         <div className="row">

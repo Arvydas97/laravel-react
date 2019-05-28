@@ -12,7 +12,7 @@ class Post extends Component{
         }
 }
     componentDidMount() {
-        fetch('http://laravel-react.test/api/category/'+this.props.id)
+        fetch('http://blogas.test/api/category/'+this.props.id)
             .then(response => response.json())
             .then(data => {
                 this.setState({

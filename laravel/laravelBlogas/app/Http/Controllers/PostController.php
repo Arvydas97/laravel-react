@@ -88,6 +88,9 @@ class PostController extends BaseController
             ->with('posts', $posts)
             ->with("categories",$categories);
     }
+    public function showByCategory($id){
+        $posts = Post::where("cat_id", "=", $id)->get() ;
+    }
 
     public function like($id){
         $postas = Post::find($id);
